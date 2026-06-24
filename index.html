@@ -647,6 +647,23 @@ function toggleProject(card) {
 
   draw();
 })();
+
+// PHOTO GLITCH DYNAMIC
+(function(){
+  const photo = document.getElementById('profilePhoto');
+  const glitchR = document.getElementById('glitchR');
+  const glitchB = document.getElementById('glitchB');
+  if(!photo) return;
+  photo.addEventListener('load', function(){
+    const src = photo.src;
+    glitchR.style.backgroundImage = `url(${src})`;
+    glitchB.style.backgroundImage = `url(${src})`;
+  });
+  if(photo.complete){
+    glitchR.style.backgroundImage = `url(${photo.src})`;
+    glitchB.style.backgroundImage = `url(${photo.src})`;
+  }
+})();
 </script>
 </body>
 </html>
